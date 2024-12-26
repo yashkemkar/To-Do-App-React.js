@@ -1,5 +1,5 @@
 export function Header() {
     return (
-        <header></header>
+        <header>Yash</header>
     )
 }
