@@ -9,12 +9,13 @@ export function TodoList(props) {
                 todos.filter(val => !val.complete) //if not 'complete' present open tasks.
     return (
         <>
-            {filterTodosList.map((todo, todoIndex) => {
+             {filterTodosList.map((todo, todoIndex) => {
+                const tempTodoIndex = todos.findIndex(val => val.input == todo.input)
                 return (
-                    <TodoCard 
+                    <TodoCard
                         key={todoIndex}
-                        todoIndex = {todos.findIndex(val => val.input == todo.input)} 
                         {...props}
+                        todoIndex={tempTodoIndex}
                         todo={todo} />
                 )
             })}

@@ -1,6 +1,6 @@
 export function TodoCard(props) {
     const { todo, handleDeleteTodo, todoIndex, handleCompleteTodo } = props //destructure the todos so we can use it in other components.
-    console.log(todo)
+    
     return (
         <div className = "card todo-item">
             <p>{todo.input}</p>

@@ -17,7 +17,7 @@ function App() {
 
   const [todos, setTodos] = useState([{ input: 'Hello! Add your first todo!', complete: true }])
 
-  const [selectedTab, setSelectedTab] = useState('All')
+  const [selectedTab, setSelectedTab] = useState('Open')
 
   // create an add function
   function handleAddTodo(newTodo) {
@@ -45,7 +45,7 @@ function App() {
   }
   // need to save data from previous use onto local storage. Stored within the JSON to be accessed later. Using object literal syntax and stringify the todo list and save it to our todo app.
   function handleSaveData(currTodos) {
-    db = localStorage.setItem('todo_app', JSON.stringify({ todos: currTodos }))
+    localStorage.setItem('todo_app', JSON.stringify({ todos: currTodos }))
   }
 
   // use effect to pull previously stored data when user reloads after the first time
@@ -59,7 +59,7 @@ function App() {
     <>
       <Header todos={todos} />
       <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} todos={todos} />
-      <TodoList handleCompleteTodo={handleCompleteTodo} handleDeleteTodo={handleDeleteTodo} todos={todos} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+      <TodoList handleCompleteTodo={handleCompleteTodo} handleDeleteTodo={handleDeleteTodo} todos={todos} selectedTab={selectedTab}/>
       <TodoInput handleAddTodo={handleAddTodo} />
     </>
   )
