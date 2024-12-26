@@ -51,7 +51,6 @@ function App() {
   // use effect to pull previously stored data when user reloads after the first time
   useEffect(() => {
     if (!localStorage || !localStorage.getItem('todo_app')) { return } //guard clause to prevent errors - if localstorage is not ready for us, then just exit out of this.
-    console.log('here')
     let db = JSON.parse(localStorage.getItem('todo_app')) //access the data in the JSON
     setTodos(db.todos) //set todos to the stored value in the JSON
   }, [])
