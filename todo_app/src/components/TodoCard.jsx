@@ -1,14 +1,17 @@
 export function TodoCard(props) {
-    const { todo } = props //destructure the todos so we can use it in other
+    const { todo, handleDeleteTodo, todoIndex, handleCompleteTodo } = props //destructure the todos so we can use it in other components.
     console.log(todo)
     return (
         <div className = "card todo-item">
             <p>{todo.input}</p>
             <div className = "todo-buttons">
-                <button disabled={todo.complete}> 
+                <button onClick={()=>{handleCompleteTodo(todoIndex)}}
+                disabled={todo.complete}> 
                     <h6>Done</h6>
                 </button>
-                <button>
+                <button onClick = {()=>{
+                    handleDeleteTodo(todoIndex)
+                }}>
                     <h6>Delete</h6>
                 </button>
             </div>
